@@ -40,6 +40,13 @@ export class PostsService {
 
   }
 
+  getPost(id: string) {
+
+    return {...this.posts.find(p => p.id === id)};
+
+
+  }
+
   addPosts(title: string, content: string) {
 
     const post: Post = {id: null, title: title, content: content};
@@ -55,6 +62,15 @@ export class PostsService {
       });
 
 
+
+  }
+
+  updatePost(id: string, title: string, content: string) {
+
+    const post: Post = { id: id, title: title, content: content };
+
+    this.http.put('http://localhost:3000/api/posts/' + id, post)
+      .subscribe(response => console.log(response));
 
   }
 
