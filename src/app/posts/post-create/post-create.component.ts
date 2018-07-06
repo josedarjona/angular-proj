@@ -63,6 +63,12 @@ export class PostCreateComponent implements OnInit {
     });
   }
 
+  onImagePicked(event: Event) {
+
+    const file = (event.target as HTMLInputElement).files[0];
+
+  }
+
   onSavePost() {
     // console.dir(postInput)
 
