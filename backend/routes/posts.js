@@ -109,14 +109,35 @@ router.get('', (req, res, next) => {
 
   //    },
   // ];
+  // console.log(req.query)
+  const pageSize = +req.query.pagesize;
+  const currentPage = +req.query.page;
+  const postQuery = Post.find();
+  let fetchedPosts;
 
-  Post.find()
-  .then(documents => {
-    console.log(documents);
+  if (pageSize && currentPage) {
+    postQuery
+      .skip(pageSize * (currentPage - 1))
+      .limit(pageSize);
+  }
+  postQuery.then(documents => {
+    // console.log(documents);
+    // res.status(200).json({
+    //   message: 'posts fetched succesfully',
+    //   posts: documents,
+    // });
+    fetchedPosts = documents;
+    return Post.count()
+  })
+  .then(count => {
+    // console.log(documents);
     res.status(200).json({
       message: 'posts fetched succesfully',
-      posts: documents,
-    });
+      posts: fetchedPosts,
+      maxPosts: count,
+
+    })
+
   });
 
 });
