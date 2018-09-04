@@ -21,6 +21,34 @@ import { LoginComponent } from './auth/login/login.component';
 
 
 
+// @NgModule({
+//   declarations: [
+//     AppComponent,
+//     PostCreateComponent,
+//     HeaderComponent,
+//     PostListComponent,
+//     LoginComponent,
+//   ],
+//   imports: [
+//     BrowserModule,
+//     AppRoutingModule,
+//     ReactiveFormsModule,
+//     BrowserAnimationsModule,
+//     FormsModule,
+//     MatInputModule,
+//     MatCardModule,
+//     MatButtonModule,
+//     MatToolbarModule,
+//     MatExpansionModule,
+//     MatProgressSpinnerModule,
+//     MatPaginatorModule,
+//     HttpClientModule,
+//   ],
+//   providers: [],
+//   bootstrap: [AppComponent]
+// })
+// export class AppModule { }
+
 @NgModule({
   declarations: [
     AppComponent,
